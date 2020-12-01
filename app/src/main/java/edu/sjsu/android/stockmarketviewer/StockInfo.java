@@ -1,5 +1,8 @@
 package edu.sjsu.android.stockmarketviewer;
 
+/**
+ * Stock Info class which will give details about the stock
+ */
 public class StockInfo {
     private String stockSymbol;
     private String stockName;

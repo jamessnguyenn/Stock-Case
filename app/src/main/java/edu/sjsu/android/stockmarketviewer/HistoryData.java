@@ -3,6 +3,9 @@ package edu.sjsu.android.stockmarketviewer;
 import java.text.NumberFormat;
 import java.util.Locale;
 
+/**
+ * History Data class containing information about the history
+ */
 public class HistoryData {
     private String closePrice;
     private String volume;

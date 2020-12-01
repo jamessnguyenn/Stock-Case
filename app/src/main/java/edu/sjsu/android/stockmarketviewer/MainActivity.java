@@ -38,7 +38,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-
+/**
+ * Main activity which holds the favorites list and auto complete text form
+ */
 public class MainActivity extends AppCompatActivity {
     private AutoCompleteTextView inputSymbol;
     private JSONParser jsonParser;
@@ -184,7 +186,10 @@ public class MainActivity extends AppCompatActivity {
         }
         new GetFavoritesSymbols().execute();
         if(refreshSwitch.isChecked() == true){
+            refresh = true;
             mHandler.post(runnable);
+        }else{
+            refresh = false;
         }
     }
 

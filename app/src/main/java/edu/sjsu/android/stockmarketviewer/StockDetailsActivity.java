@@ -29,7 +29,9 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.StringTokenizer;
 
-
+/**
+ * Activity which gives information about a particular stock
+ */
 public class StockDetailsActivity extends AppCompatActivity {
     private List<HistoryData> historyData = new ArrayList<HistoryData>();
     private JSONObject stockDetails;

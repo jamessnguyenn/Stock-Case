@@ -1,5 +1,8 @@
 package edu.sjsu.android.stockmarketviewer;
 
+/**
+ * Stock Favorites class to hold information about the Stock Favorites
+ */
 public class StockFavorite {
     private String stockName;
     private String stockSymbol;

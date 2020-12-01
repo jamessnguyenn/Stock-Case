@@ -11,6 +11,9 @@ import android.widget.TextView;
 
 import java.util.List;
 
+/***
+ * Adapter used for auto complete recycler view
+ */
 public class AutoCompleteAdapter extends ArrayAdapter<StockInfo> {
     private final List<StockInfo> stocks;
 

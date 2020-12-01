@@ -13,6 +13,9 @@ import java.text.NumberFormat;
 import java.util.List;
 import java.util.Locale;
 
+/***
+ * Class used for historical data recycler view
+ */
 public class HistoricalDataAdapter extends RecyclerView.Adapter<HistoricalDataAdapter.ViewHolder> {
     private List<HistoryData> historyDataList;
 

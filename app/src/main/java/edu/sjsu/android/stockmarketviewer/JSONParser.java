@@ -16,7 +16,9 @@ import java.nio.charset.StandardCharsets;
 import java.util.Calendar;
 import java.util.Date;
 
-
+/**
+ * Class in charge of sending GET request to Tiingo REST API and parsing the response as JSON
+ */
 public class JSONParser {
     private static final String API_KEY = "ff16d6d11bf37c6e62c61e1f2f6ee34d7e3bb211";
 

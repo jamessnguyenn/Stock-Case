@@ -13,6 +13,9 @@ import java.text.NumberFormat;
 import java.util.List;
 import java.util.Locale;
 
+/**
+ * Stock Details Adapter for Stock Details Recycler View
+ */
 public class StockDetailsAdapter extends RecyclerView.Adapter<StockDetailsAdapter.ViewHolder> {
     private List<StockDetails> stockDetails;
 

@@ -1,5 +1,8 @@
 package edu.sjsu.android.stockmarketviewer;
 
+/**
+ * Stock details which contains info pertaining to the stock details
+ */
 public class StockDetails {
     private String detailsTitle;
     private String detailsData;
