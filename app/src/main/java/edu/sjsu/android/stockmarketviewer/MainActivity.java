@@ -325,6 +325,7 @@ public class MainActivity extends AppCompatActivity {
                 Log.d("Get Favorites Symbol", "Got Company Info");
                 try {
                     currentStock = jsonParser.getCurrentStock(sharedPreferences.get(i)).getJSONObject(0);
+                    Log.d("Get Favorites Symbol", "Got Current Stock");
                     Double last = null;
                     Double prev = null;
                     if(!currentStock.isNull("last")) {
@@ -333,6 +334,7 @@ public class MainActivity extends AppCompatActivity {
                     if(!currentStock.isNull("prevClose")){
                         prev = currentStock.getDouble("prevClose");
                     }
+                    Log.d("Get Favorites Symbol", "Got Prev Close");
                     results.add(new StockFavorite(companyInfo.getString("name"), companyInfo.getString("ticker"), jsonParser.getMarketCap(sharedPreferences.get(i)), last , prev));
                     Log.d("Get Favorites Symbol", "Added Favorites");
                 } catch (JSONException | NullPointerException e) {
