@@ -111,4 +111,27 @@ public class JSONParser {
             return null;
         }
     }
+    public Double getMarketCap(String symbol){
+        Calendar calendar = Calendar.getInstance();
+        calendar.add(Calendar.DATE, -7);
+        String startDate = ""+ calendar.get(Calendar.YEAR)+"-"+ (calendar.get(Calendar.MONTH)+1) +"-"+calendar.get(Calendar.DAY_OF_MONTH);
+        String urlString = "https://api.tiingo.com/tiingo/fundamentals/"+symbol+"/daily?startDate="+startDate+"&token="+API_KEY;
+        String result = "";
+        try {
+            URL url = new URL(urlString);
+            InputStream stream = url.openConnection().getInputStream();
+            InputStreamReader reader = new InputStreamReader(stream);
+            BufferedReader in = new BufferedReader(reader);
+            String inputLine;
+            while((inputLine = in.readLine())!=null){
+                result = result +inputLine;
+            }
+            in.close();
+            JSONArray info = new JSONArray(result);
+            return info.getJSONObject(info.length()-1).getDouble("marketCap");
+        } catch (IOException | JSONException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
 }

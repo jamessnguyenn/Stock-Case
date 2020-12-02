@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import org.w3c.dom.Text;
 
+import java.math.RoundingMode;
 import java.text.NumberFormat;
 import java.util.List;
 import java.util.Locale;
@@ -17,6 +18,7 @@ import java.util.Locale;
  * Stock Details Adapter for Stock Details Recycler View
  */
 public class StockDetailsAdapter extends RecyclerView.Adapter<StockDetailsAdapter.ViewHolder> {
+    private NumberFormat nf = NumberFormat.getCurrencyInstance(new Locale("en", "US"));
     private List<StockDetails> stockDetails;
 
     public class ViewHolder extends RecyclerView.ViewHolder{
@@ -43,13 +45,14 @@ public class StockDetailsAdapter extends RecyclerView.Adapter<StockDetailsAdapte
     }
 
     public void onBindViewHolder(ViewHolder holder, final int position){
+        nf.setRoundingMode(RoundingMode.HALF_UP);
         String title= stockDetails.get(position).getDetailsTitle();
         String data=stockDetails.get(position).getDetailsData();
         if(data == "null"){
             holder.detailData.setText("-");
         }else {
             if(!(title.equals("Ask Size") || title.equals("Last Size") || title.equals("Volume") ||title.equals("Bid Size"))){
-               data =""+ NumberFormat.getCurrencyInstance(new Locale("en", "US")).format(Double.parseDouble(data));
+               data =""+ nf.format(Double.parseDouble(data));
             }
             holder.detailData.setText(data);
         }

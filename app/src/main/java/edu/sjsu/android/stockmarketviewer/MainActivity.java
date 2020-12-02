@@ -322,9 +322,19 @@ public class MainActivity extends AppCompatActivity {
         protected Void doInBackground(Void... voids) {
             for (int i = 0; i < sharedPreferences.size(); i++) {
                 companyInfo = jsonParser.getCompanyInfo(sharedPreferences.get(i));
+                Log.d("Get Favorites Symbol", "Got Company Info");
                 try {
                     currentStock = jsonParser.getCurrentStock(sharedPreferences.get(i)).getJSONObject(0);
-                    results.add(new StockFavorite(companyInfo.getString("name"), companyInfo.getString("ticker"), currentStock.getString("volume"), currentStock.getString("last"), currentStock.getString("prevClose")));
+                    Double last = null;
+                    Double prev = null;
+                    if(!currentStock.isNull("last")) {
+                        last = currentStock.getDouble("last");
+                    }
+                    if(!currentStock.isNull("prevClose")){
+                        prev = currentStock.getDouble("prevClose");
+                    }
+                    results.add(new StockFavorite(companyInfo.getString("name"), companyInfo.getString("ticker"), jsonParser.getMarketCap(sharedPreferences.get(i)), last , prev));
+                    Log.d("Get Favorites Symbol", "Added Favorites");
                 } catch (JSONException | NullPointerException e) {
                     e.printStackTrace();
                     return null;
@@ -362,7 +372,15 @@ public class MainActivity extends AppCompatActivity {
                 companyInfo = jsonParser.getCompanyInfo(sharedPreferences.get(i));
                 try {
                     currentStock = jsonParser.getCurrentStock(sharedPreferences.get(i)).getJSONObject(0);
-                    results.add(new StockFavorite(companyInfo.getString("name"), companyInfo.getString("ticker"), currentStock.getString("volume"), currentStock.getString("last"), currentStock.getString("prevClose")));
+                    Double last = null;
+                    Double prev = null;
+                    if(!currentStock.isNull("last")) {
+                        last = currentStock.getDouble("last");
+                    }
+                    if(!currentStock.isNull("prevClose")){
+                        prev = currentStock.getDouble("prevClose");
+                    }
+                    results.add(new StockFavorite(companyInfo.getString("name"), companyInfo.getString("ticker"), jsonParser.getMarketCap(sharedPreferences.get(i)), last , prev));
                 } catch (JSONException | NullPointerException e) {
                     e.printStackTrace();
                     return null;
@@ -415,7 +433,7 @@ public class MainActivity extends AppCompatActivity {
 
         public void onBindViewHolder(ViewHolder holder, final int position) {
             String companySymbol = stockFavoriteList.get(position).getStockSymbol();
-            String volume = stockFavoriteList.get(position).getVolume();
+            String marketCap = stockFavoriteList.get(position).getMarketCap();
             String latestPrice = stockFavoriteList.get(position).getLatestPrice();
             String companyPercentage = stockFavoriteList.get(position).getPercentage();
             String companyName = stockFavoriteList.get(position).getStockName();
@@ -435,7 +453,7 @@ public class MainActivity extends AppCompatActivity {
                     holder.companyPercentage.setText("+" + companyPercentage);
                 }
             }
-            holder.favoriteVolume.setText("Stock Volume: " + volume);
+            holder.favoriteVolume.setText("Market Cap: " + marketCap);
             holder.companyName.setText(companyName);
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
