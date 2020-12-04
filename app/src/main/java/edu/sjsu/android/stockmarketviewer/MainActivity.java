@@ -259,6 +259,10 @@ public class MainActivity extends AppCompatActivity {
                     return null;
                 }
                 companyDescription = jsonParser.getCompanyInfo(strings[0]);
+                if (companyDescription == null) {
+                    exists = false;
+                    return null;
+                }
             }
             return null;
         }
