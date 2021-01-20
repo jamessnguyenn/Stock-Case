@@ -4,7 +4,7 @@ Stock Case is a Android Mobile Application allow you to get real time stock pric
 
 ## Running the Application
 
-To run the program, enter “git clone https://github.com/jamessnguyenn/Stock-Market-Application.git” in your command terminal. This will copy the files to your computer as a local repository. Open the local repository through Android Studios, and then click the green play button to run the application on your emulated device.
+To run the program, enter “git clone https://github.com/jamessnguyenn/Stock-Case.git” in your command terminal. This will copy the files to your computer as a local repository. Open the local repository through Android Studios, and then click the green play button to run the application on your emulated device.
 App Information
 
 Furthermore, you can also download the apk from https://github.com/jamessnguyenn/Stock-Case/releases/tag/v1.0 to your Android device.
