@@ -1,6 +1,6 @@
 # Stock Case
 
-Stock Case is a Android Mobile Application allow you to get real time stock prices for your portfolio. Easily download the apk from https://github.com/jamessnguyenn/Stock-Case/releases/tag/v1.0 and view and store stocks in your case!
+Stock Case is a Android Mobile Application allowing you to get real time stock prices for your portfolio. Easily download the apk from https://github.com/jamessnguyenn/Stock-Case/releases/tag/v1.0 and view and store stocks in your case!
 
 ## Running the Application
 
